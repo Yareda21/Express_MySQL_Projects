@@ -15,21 +15,16 @@ const pool = mysql
     })
     .promise();
 
-// creating queries
-// getting all the note
-async function getNotes() {
-    const [raws] = await pool.query("select * from city");
-    return raws;
-}
-
 const TABLE_NAME = process.env.TABLE_NAME || "city";
+// creating queries
+// getting all the cities
 
 /**
  * Get all cities from the database
  * @returns {Promise<Array>} Array of city objects
  * @throws {Error} If database query fails
  */
-async function getNotes() {
+async function getCities() {
     try {
         const [rows] = await pool.query("SELECT * FROM ??", [TABLE_NAME]);
         return rows;
@@ -154,4 +149,4 @@ async function deleteCity(id) {
     }
 }
 
-export { getNotes, singleCity, createCity, editCity, deleteCity };
+export { getCities, singleCity, createCity, editCity, deleteCity };

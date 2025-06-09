@@ -208,3 +208,104 @@ All functions include error handling for:
     - Check table structure
     - Verify data types
     - Ensure unique constraints
+
+# City Management API
+
+A RESTful API for managing city data using Express.js and MySQL.
+
+## Server Design
+
+-   Built with Express.js and MySQL
+-   Uses connection pooling for database operations
+-   Implements proper error handling and input validation
+-   Follows RESTful API conventions
+
+## API Endpoints
+
+### Get All Cities
+
+```http
+GET /api/city
+```
+
+Returns a list of all cities.
+
+### Get Single City
+
+```http
+GET /api/city/:id
+```
+
+Returns details of a specific city by ID.
+
+### Create City
+
+```http
+POST /api/city
+```
+
+Creates a new city.
+
+**Request Body:**
+
+```json
+{
+    "name": "City Name",
+    "countrycode": "COUNTRY_CODE",
+    "district": "District Name",
+    "population": 1000000
+}
+```
+
+### Update City
+
+```http
+PATCH /api/city/:id
+```
+
+Updates specific fields of a city.
+
+**Request Body:**
+
+```json
+{
+    "colName": "field_to_update",
+    "data": "new_value"
+}
+```
+
+### Delete City
+
+```http
+DELETE /api/city/:id
+```
+
+Deletes a city by ID.
+
+## Environment Variables
+
+Create a `.env` file with the following variables:
+
+```env
+MYSQL_HOST=your_host
+MYSQL_USER=your_user
+MYSQL_PASSWORD=your_password
+MYSQL_DATABASE=your_database
+TABLE_NAME=city
+```
+
+## Running the Server
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the server:
+
+```bash
+npm start
+```
+
+The server will run on port 3000.
